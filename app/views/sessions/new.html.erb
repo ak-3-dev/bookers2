@@ -2,10 +2,10 @@
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
 <%= form_with url: session_path do |form| %>
-  <div class="fild">
-    <%= form.label :name %><br>
-    <%= form.text_field :name, required: true, autofocus: true, class: "form-control" %>
-  </div>
+  <%= form.text_field :name, required: true, autoforcus: true, autocomplete: "username", placeholder: "Enter your name", value: params[:name] %><br>
+  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
+  <%= form.submit "Sign in" %>
+
 
   <div class="field">
     <%= form.label :password %><br>
