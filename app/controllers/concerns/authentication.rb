@@ -30,7 +30,6 @@ module Authentication
     end
 
     def request_authentication
-      session[:return_to_after_authenticating] = request.url
       redirect_to new_session_path
     end
 
@@ -46,7 +45,7 @@ module Authentication
     end
 
     def terminate_session
-      Current.session.destroy
+      Current.session&.destroy
       cookies.delete(:session_id)
     end
 end

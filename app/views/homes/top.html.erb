@@ -1,2 +1,19 @@
-<h1>Topページ/h1>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-ms 10 col-lg-8 col-xl-6">
+      <h1>welcome to <strong>Bookers</strong>!!</h1>
+      <p>In <strong>Bookers</strong>,</p>
+      <p>you can share and exchange your opinipns , inpressions , and emotions</p>
+      <p>about various books!</p>
 
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+          <%= link_to "Log in", new_session_path, class: "btn btn-info btn-sm btn-block" %>
+        </div>
+        <div class="row">
+          <%= link_to "Sign up", new_user_path, class: "btn btn-success btn-sm btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

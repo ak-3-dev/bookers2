@@ -9,9 +9,10 @@ class SessionsController < ApplicationController
     if (user = User.find_by(name: params[:name]))&.authenticate(params[:password])
       terminate_session
       start_new_session_for user
-      redirect_to after_authentication_url
+      redirect_to user_path(user), notice: "Signed in successfully."
     else
-      redirect_to new_session_path, alert: "Try another email address or password."
+      flash.now[alert] = "Invalid name or password."
+      render :new, status: :unprocessable_entity
     end
   end
 
