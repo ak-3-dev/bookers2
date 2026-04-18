@@ -45,18 +45,30 @@
       </nav>
     </header>
   
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
+    <main class="container mt-3">
+      <% if notice %>
+        <div class="alert alert-success" role="alert" id="notice">
+          <%= notice %>
+        </div>
+      <% end %>
 
-    <%= yield %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert" id="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
 
     <footer>
       <div class="container mt-5">
         <div class="row">
-          <div class="mx-auto">
+          <div class="text-center">
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>
       </div>
+    </footer>
   </body>
 </html>

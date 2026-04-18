@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "You have updated user successfully."
     else
+      flash.now[:alert] = "error: Book could not be updated."
       render :edit
     end
   end
@@ -37,6 +38,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email_address, :password, :password_confirmation, introduction, :profile_image)
+    params.require(:user).permit(:name, :email_address, :password, :password_confirmation, :introduction, :profile_image)
+  end
+
+  def is_maching_login_user
+    user = User.find(params[:id])
+    unless user.id == Current.user.id
+      redirect_to user_path(Current.user.id)
+    end
   end
 end
