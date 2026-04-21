@@ -15,7 +15,6 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = Current.user
-      flash.now[:alert] = "error: Book could not be saved."
       render :index, status: :unprocessable_entity
     end
   end
@@ -33,8 +32,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
-      flash.now[:alert] = "error: Book could not be updated."
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

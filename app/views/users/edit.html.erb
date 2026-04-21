@@ -4,7 +4,7 @@
      <h2>User info</h2>
 
      <% if @user.errors.any? %>
-       <div id="error_explanation" class="text-danger">
+       <div class="text-dark">
          <h3><%= @user.errors.count %> errors prohibited this user from being saves:</h3>
          <ul>
            <% @user.errors.full_messages.each do |message| %>
