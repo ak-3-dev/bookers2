@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.all
+    @book = Book.new
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
