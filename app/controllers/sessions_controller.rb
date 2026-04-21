@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
       start_new_session_for user
       redirect_to user_path(user), notice: "Signed in successfully."
     else
-      flash.now[alert] = "Invalid name or password."
+      flash.now[:alert] = "error: Invalid name or password."
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     terminate_session
-    redirect_to new_session_path
+    redirect_to root_path, notice: "Singned out successfully."
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "books/index"
   get "books/show"
   get "books/edit"
+  get "home/about", to: "homes#about", as: "about"
   resources :users, only: [:new, :create, :show, :index, :edit, :update] , path_names: { new: 'sign_up' }
   resources :books, only: [:index, :show, :edit, :create, :update, :destroy]
   resource :session
