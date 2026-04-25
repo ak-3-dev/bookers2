@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   allow_unauthenticated_access only: [ :new, :create ]
+  before_action :is_maching_login_user, only: [ :edit, :update ]
 
   def new
     @user = User.new

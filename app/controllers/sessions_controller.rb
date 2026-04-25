@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       start_new_session_for user
       redirect_to user_path(user), notice: "Signed in successfully."
     else
-      flash.now[:alert] = "error: Invalid name or password."
-      render :new, status: :unprocessable_entity
+      flash[:alert] = "error: Invalid name or password."
+      redirect_to new_session_path
     end
   end
 

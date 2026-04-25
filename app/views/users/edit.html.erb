@@ -8,7 +8,7 @@
          <h3><%= @user.errors.count %> errors prohibited this user from being saves:</h3>
          <ul>
            <% @user.errors.full_messages.each do |message| %>
-             <li><%= messafe %></li>
+             <li><%= message %></li>
            <% end %>
           </ul>
         </div>
