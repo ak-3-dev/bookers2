@@ -65,4 +65,4 @@ end
 
 gem "net-smtp"
 
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
